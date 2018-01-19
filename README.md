@@ -10,18 +10,18 @@
 - [x] Give the field an id of “other-title,” and add the placeholder text of "Your Job Role" to the field.
 
 ### ”T-Shirt Info” section of the form:
-- [ ] For the T-Shirt color menu, only display the color options that match the design selected in the "Design" menu.
+- [x] For the T-Shirt color menu, only display the color options that match the design selected in the "Design" menu.
 
-- [ ] If the user selects "Theme - JS Puns" then the color menu should only display "Cornflower Blue," "Dark Slate Grey," and "Gold."
+- [x] If the user selects "Theme - JS Puns" then the color menu should only display "Cornflower Blue," "Dark Slate Grey," and "Gold."
 
-- [ ] If the user selects "Theme - I ♥ JS" then the color menu should only display "Tomato," "Steel Blue," and "Dim Grey."
+- [x] If the user selects "Theme - I ♥ JS" then the color menu should only display "Tomato," "Steel Blue," and "Dim Grey."
 
 ### ”Register for Activities” section of the form:
-- [ ] Some events are at the same time as others. If the user selects a workshop, don't allow selection of a workshop at the same date and time -- you should disable the checkbox and visually indicate that the workshop in the competing time slot isn't available.
+- [x] Some events are at the same time as others. If the user selects a workshop, don't allow selection of a workshop at the same date and time -- you should disable the checkbox and visually indicate that the workshop in the competing time slot isn't available.
 
-- [ ] When a user unchecks an activity, make sure that competing activities (if there are any) are no longer disabled.
+- [x] When a user unchecks an activity, make sure that competing activities (if there are any) are no longer disabled.
 
-- [ ] As a user selects activities, a running total should display below the list of checkboxes. For example, if the user selects "Main Conference", then Total: $200 should appear. If they add 1 workshop, the total should change to Total: $300.
+- [x] As a user selects activities, a running total should display below the list of checkboxes. For example, if the user selects "Main Conference", then Total: $200 should appear. If they add 1 workshop, the total should change to Total: $300.
 
 ### Payment Info section of the form:
 
@@ -30,9 +30,9 @@
 - [x] When a user selects the "PayPal" payment option, the Paypal information should display, and the credit card and “Bitcoin” information should be hidden.
 
 ### Form validation messages:
-- [ ] Provide some kind of indication when there’s a validation error. The field’s borders could turn red, for example, or a message could appear near the field or at the top of the form
+- [x] Provide some kind of indication when there’s a validation error. The field’s borders could turn red, for example, or a message could appear near the field or at the top of the form
 
-- [ ] There should be an error indication for the name field, email field, “Register for Activities” checkboxes, credit card number, zip code, and CVV
+- [ ] There should be an error indication for the +name field, +email field, “Register for Activities” checkboxes, credit card number, zip code, and CVV
 
 - [x] When JavaScript is switched off or unavailable, the user should still have access to all form fields and payment information. For example, the “Other” text field in the "Job Role" menu should be visible on the page when JavaScript is switched off, and all information for Bitcoin, Paypal or Credit Card payments should be visible.
 
