@@ -80,6 +80,10 @@ const errors = {
   }
 };
 
+const addEventListeners = (element, events, fn) => {
+  events.forEach(el => element.addEventListener(el, fn, true))
+};
+
 const buttonElement = document.getElementsByTagName('button')[0];
 
 const disableElement = (elementToDisable) => {
@@ -207,11 +211,12 @@ const errorCreator = (errorText, errorId) => {
   div.id = errorId;
   div.style.color = 'red';
   div.style.marginBottom = '10px';
+  div.style.display = 'block';
   
-  const span = document.createElement('SPAN');
-  span.textContent = errorText;
+  const error = document.createElement('SPAN');
+  error.textContent = errorText;
   
-  div.appendChild(span);
+  div.appendChild(error);
   
   return div;
 };
@@ -373,42 +378,104 @@ document.getElementById('payment').addEventListener('change', (event) => {
   }
 });
 
-const digitChecker = (inputValue) => /^\d+$/.test(inputValue);
+const onlyDigitsInInput = (inputValue) => /^\d+$/.test(inputValue);
 
-const emptyCreditCardData = (blurredItem) => {
-
-};
-
-const ccNumChecker = (inputValue, element) => {
-  console.log('Fire ccNumChecker');
-  console.log('Value: ', inputValue);
-  console.log('Element: ', element);
-  
-};
-
-document.getElementById('credit-card').addEventListener('change', (event) => {
-  const ccTargetId = event.target.id;
-  console.log('Checking CC data: ', event.target);
-  console.log('Event: ', event);
+const creditCardBlur = (value, element) => {
   
   
-  switch (ccTargetId) {
-    case 'cc-num':
-      ccNumChecker(event.target.value, ccTargetId);
-      break;
-    case 'zip':
-      
-      break;
-      
-    case 'cvv':
-      
-      break;
-      
-    default:
-      console.log('CC bluring element default: ', event.target.id);
-      break;
+  if(value.length === 0) {
+    if(element.nextElementSibling && element.nextElementSibling.id.includes('error')) {
+      removeError(element.nextSibling);
+      errorPainter(element, false);
+    } else {
+      insertError(element.parentNode, errorCreator(errors.creditcard.empty, errors.creditcard.errorId), element);
+      errorPainter(element, true);
+    }
   }
-}, true);
+};
+
+const creditCardInput = (value, element) => {
+  console.log('Checking creditcard chars: ', value);
+  if(value.length !== 0) {
+    if(onlyDigitsInInput(value)) {
+      if(element.nextElementSibling && element.nextElementSibling.id.includes('error')) {
+        removeError(element.nextSibling);
+        errorPainter(element, false);
+      }
+    } else {
+      if(!element.nextElementSibling) {
+        insertError(element.parentNode, errorCreator(errors.creditcard.onlyDigits, errors.creditcard.errorId), element);
+        errorPainter(element, true);
+      }
+    }
+  } else {
+    if(element.nextElementSibling) {
+      removeError(element.nextSibling);
+      errorPainter(element, false);
+    }
+  }
+};
+
+const zipBlur = (value, element) => {
+  if(value.length !== 0) {
+    if(onlyDigitsInInput(value)) {
+      if(element.nextElementSibling && element.nextElementSibling.id.includes('error')) {
+        removeError(element.nextSibling);
+        errorPainter(element, false);
+      }
+    } else {
+      if(!element.nextElementSibling) {
+        insertError(element.parentNode, errorCreator(errors.creditcard.onlyDigits, errors.creditcard.errorId), element);
+        errorPainter(element, true);
+      }
+    }
+  } else {
+    if(element.nextElementSibling) {
+      removeError(element.nextSibling);
+      errorPainter(element, false);
+    }
+  }
+};
+
+const zipInput = () => {
+
+};
+
+const cvvBlur = () => {
+
+};
+
+const cvvInput = () => {
+
+};
+
+const creditCardFunction = (event) => {
+  if(event.type === 'input') {
+    creditCardInput(event.target.value, event.target);
+  } else if (event.type === 'blur') {
+    creditCardBlur(event.target.value, event.target)
+  }
+};
+
+const zipFunction = (event) => {
+  if(event.type === 'input') {
+  
+  } else if (event.type === 'blur') {
+  
+  }
+};
+
+const cvvFunction = (event) => {
+  if(event.type === 'input') {
+  
+  } else if (event.type === 'blur') {
+  
+  }
+};
+
+addEventListeners(document.getElementById('cc-num'), ['input', 'blur'], creditCardFunction);
+addEventListeners(document.getElementById('zip'), ['input', 'blur'], zipFunction);
+addEventListeners(document.getElementById('cvv'), ['input', 'blur'], cvvFunction);
 
 document.getElementsByTagName('form')[0].addEventListener('submit', (event) => {
   console.log('Event submit: ', event);
