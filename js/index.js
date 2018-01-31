@@ -218,22 +218,20 @@ const paymentToggler = (payContainers, iValue) => {
 const checkboxChecker = (selected, allCheckboxes) => {
   switch (selected.name) {
   case 'js-frameworks':
-    checkboxToggler([allCheckboxes[3], allCheckboxes[5]], selected.checked);
+    checkboxToggler([allCheckboxes[3]], selected.checked);
     break;
   case 'js-libs':
-    checkboxToggler([allCheckboxes[4], allCheckboxes[6]], selected.checked);
+    checkboxToggler([allCheckboxes[4]], selected.checked);
     break;
   case 'express':
-    checkboxToggler([allCheckboxes[1], allCheckboxes[5]], selected.checked);
+    checkboxToggler([allCheckboxes[1]], selected.checked);
     break;
   case 'node':
-    checkboxToggler([allCheckboxes[2], allCheckboxes[6]], selected.checked);
+    checkboxToggler([allCheckboxes[2]], selected.checked);
     break;
   case 'build-tools':
-    checkboxToggler([allCheckboxes[3], allCheckboxes[1]], selected.checked);
     break;
   case 'npm':
-    checkboxToggler([allCheckboxes[4], allCheckboxes[2]], selected.checked);
     break;
   default:
     break;
