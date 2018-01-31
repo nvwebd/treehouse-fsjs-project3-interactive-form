@@ -37,25 +37,10 @@
 
     return totalDiv;
   };
-
-  /**
-   * [addOtherTitleElement function adds the other title element to the DOM]
-   */
-  const addOtherTitleElement = () => {
-    const totalInput = document.createElement('INPUT');
-
-    totalInput.setAttribute('type', 'text');
-    totalInput.setAttribute('name', 'other-title');
-    totalInput.id = 'other-title';
-    totalInput.setAttribute('placeholder', 'Your Job Role');
-
-    totalInput.classList.add('is-hidden');
-
-    return totalInput;
-  };
+  
+  document.getElementById('other-title').classList.add('is-hidden');
 
   const otherSibling = document.getElementById('title');
-  otherSibling.parentNode.appendChild(addOtherTitleElement());
 
   document.getElementById('payment').options[1].setAttribute('selected', '');
 
