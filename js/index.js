@@ -229,10 +229,6 @@ const checkboxChecker = (selected, allCheckboxes) => {
   case 'node':
     checkboxToggler([allCheckboxes[2]], selected.checked);
     break;
-  case 'build-tools':
-    break;
-  case 'npm':
-    break;
   default:
     break;
   }
